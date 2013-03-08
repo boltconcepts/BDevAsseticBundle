@@ -1,0 +1,23 @@
+parameters:
+  assetic.filter.lessphp.class: BDev\Bundle\AsseticBundle\Filter\LessphpFilter
+
+  assetic.font_directory_resource.class: Assetic\Factory\Resource\DirectoryResource
+  assetic.font_directory_formula_loader.class: BDev\Bundle\AsseticBundle\Factory\Loader\FontDirectoryFormulaLoader
+
+services:
+  assetic.filter.lessphp:
+    class: %assetic.filter.lessphp.class%
+    calls:
+      - [ setPresets,           [ %assetic.filter.lessphp.presets% ] ]
+      - [ setFormatter,         [ %assetic.filter.lessphp.formatter% ] ]
+      - [ setPreserveComments,  [ %assetic.filter.lessphp.preserve_comments% ] ]
+      - [ addLoadPaths,         [ %assetic.filter.lessphp.load_paths% ] ]
+    tags:
+      - { name: assetic.filter, alias: lessphp }
+
+  assetic.font_directory_formula_loader:
+    class: %assetic.font_directory_formula_loader.class%
+    arguments:
+      - @assetic.asset_factory
+    tags:
+      - { name: assetic.formula_loader, alias: font_directory_loader }

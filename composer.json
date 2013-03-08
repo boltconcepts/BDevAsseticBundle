@@ -1,0 +1,22 @@
+{
+    "name": "boltconcepts/bdev-assetic-bundle",
+    "description": "Extends the Symfony2 AsseticBundle with some tweaks and hacks.",
+    "keywords": ["symfony", "assetic"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Warnar Boekkooi",
+            "email": "warnar@boekkooi.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/assetic-bundle": ">=2.0,<2.3-dev"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": { "BDev\\Bundle\\AsseticBundle": "" }
+    },
+    "target-dir": "BDev/Bundle/AsseticBundle"
+}
